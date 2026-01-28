@@ -1,0 +1,2 @@
+if (sum > v)
+        //     break;
