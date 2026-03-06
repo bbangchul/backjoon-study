@@ -7,6 +7,10 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "macos-gcc-arm64",
+            "compilerArgs": [
+                "-std=gnu++17",
+                "-I${workspaceFolder}"
+            ],
             "includePath": [
                 "${workspaceFolder}/**"
             ]

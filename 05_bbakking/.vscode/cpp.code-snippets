@@ -1,0 +1,20 @@
+{
+    "Baekjoon Fast I/O Template": {
+        "scope": "cpp",
+        "prefix": [
+            "!cp",
+            "cp"
+        ],
+        "description": "C++ template with bits/stdc++.h and fast I/O",
+        "body": [
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "",
+            "int main()",
+            "{",
+            "    ios_base::sync_with_stdio(false);",
+            "    cin.tie(nullptr);",
+            "}"
+        ]
+    }
+}
