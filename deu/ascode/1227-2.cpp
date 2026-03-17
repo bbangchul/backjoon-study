@@ -7,16 +7,16 @@ void solve()
     int n, start = 0, last = 0;
     cin >> n;
     for (int i = 0; i < n; i++)
+    {
         cin >> arr[i];
-
+    }
     int best = 0;
     for (int i = 0; i < n; ++i)
     {
+        int sum = 0;
         for (int j = i; j < n; ++j)
         {
-            int sum = 0;
-            for (int k = i; k <= j; ++k)
-                sum += arr[k];
+            sum += arr[j];
             if (sum >= best)
             {
                 best = sum;

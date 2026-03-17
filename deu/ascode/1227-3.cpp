@@ -7,22 +7,19 @@ void solve()
     int n, start = 0, last = 0;
     cin >> n;
     for (int i = 0; i < n; i++)
+    {
         cin >> arr[i];
-
+    }
     int best = 0;
+    int sum = 0;
     for (int i = 0; i < n; ++i)
     {
-        for (int j = i; j < n; ++j)
+        sum += arr[i];
+        if (sum >= best)
         {
-            int sum = 0;
-            for (int k = i; k <= j; ++k)
-                sum += arr[k];
-            if (sum >= best)
-            {
-                best = sum;
-                start = i;
-                last = j;
-            }
+            best = sum;
+            start = i;
+            last = n - i;
         }
     }
     cout << start + 1 << " " << last + 1 << " " << best << '\n';
