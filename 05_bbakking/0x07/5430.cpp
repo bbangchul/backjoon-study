@@ -1,34 +1,74 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve()
+void parse(string &tmp, vector<int> &v)
 {
-    string p;
-    double n;
-    deque<int> v(101);
-    cin >> p >> n;
-
-    for (int i = 0; i < n; i++)
+    int cur = 0;
+    for (int i = 1; i + 1 < tmp.size(); i++)
     {
-    }
-
-    double pl = p.length();
-    for (int i = 0; i < pl; i++)
-    {
-        if (p[i] == 'D')
+        if (tmp[i] == ',')
         {
+            v.push_back(cur);
+            cur = 0;
+        }
+        else
+        {
+            cur = 10 * cur + (tmp[i] - '0');
         }
     }
+    if (cur != 0)
+        v.push_back(cur);
 }
 
+void print_result(vector<int> &v)
+{
+    cout << '[';
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i];
+        if (i + 1 != v.size())
+            cout << ',';
+    }
+    cout << "]\n";
+}
+
+int t;
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    int t;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
     cin >> t;
     while (t--)
     {
-        solve();
+        vector<int> v;
+        int rev = 0;
+        int n;
+        string query, tmp;
+        cin >> query;
+        cin >> n;
+        cin >> tmp;
+        parse(tmp, v);
+        int l = 0, r = n;
+        for (char c : query)
+        {
+            if (c == 'R')
+                rev = 1 - rev;
+            else
+            {
+                if (!rev)
+                    l++;
+                else
+                    r--;
+            }
+        }
+        if (l > r)
+            cout << "error\n";
+        else
+        {
+            vector<int> tmp(v.begin() + l, v.begin() + r);
+            if (rev)
+                reverse(tmp.begin(), tmp.end());
+            print_result(tmp);
+        }
     }
 }
