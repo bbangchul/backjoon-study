@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 void solve()
@@ -7,7 +8,6 @@ void solve()
     deque<pair<int, int>> dq;
 
     cin >> n >> m;
-
     for (int i = 0; i < n; i++)
     {
         int num;

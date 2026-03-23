@@ -2,8 +2,7 @@
     "Baekjoon Fast I/O Template": {
         "scope": "cpp",
         "prefix": [
-            "!cp",
-            "cp"
+            "!cp"
         ],
         "description": "C++ template with bits/stdc++.h and fast I/O",
         "body": [
