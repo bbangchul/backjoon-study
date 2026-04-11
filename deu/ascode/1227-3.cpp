@@ -15,29 +15,30 @@ void solve()
     for (int i = 1; i < n; ++i)
     {
         arr[i] += arr[i - 1];
+        cout << arr[i] << ' ';
     }
 
     int best = arr[0];
     int start = 0, last = 0;
 
-    int mn = 0;
-    int mn_idx = -1;
+    int min = 0;
+    int min_idx = -1;
 
     for (int i = 0; i < n; ++i)
     {
-        int cur = arr[i] - mn;
+        int cur = arr[i] - min;
 
         if (cur > best)
         {
             best = cur;
-            start = mn_idx + 1;
+            start = min_idx + 1;
             last = i;
         }
 
-        if (arr[i] <= mn)
+        if (arr[i] <= min)
         {
-            mn = arr[i];
-            mn_idx = i;
+            min = arr[i];
+            min_idx = i;
         }
     }
 
