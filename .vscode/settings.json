@@ -1,4 +1,10 @@
 {
     "editor.tabCompletion": "on",
-    "editor.snippetSuggestions": "top"
+    "editor.snippetSuggestions": "top",
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.fileDirectoryAsCwd": true,
+    "code-runner.executorMap": {
+        "cpp": "g++ -std=c++17 -g \"$fileName\" -o \"$fileNameWithoutExt\" && \"./$fileNameWithoutExt\""
+    }
 }
