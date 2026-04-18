@@ -1,21 +1,20 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
-class A
+struct S
 {
-public:
-    A() {};
     string rs;
     int score;
 };
 
-int main(void)
+int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    A a[1000];
-    char in[26];
+    S a[1000];
+    string in;
     int n, m;
 
     cin >> n >> m;
@@ -25,39 +24,39 @@ int main(void)
     while (m--)
     {
         int sum = 0;
-        int first = 1;
+        bool first = true;
 
         while (1)
         {
             cin >> in;
-            if (!strcmp(in, "."))
+            if (in == ".")
                 break;
 
-            int la = (int)strlen(in);
-            int found = 1;
+            int la = in.length();
+            bool found = false;
 
             for (int i = 0; i < n; i++)
             {
-                if (!strcmp(in, a[i].rs.c_str()))
+                if (in == a[i].rs)
                 {
                     sum -= a[i].score;
-                    found = 0;
+                    found = true;
                     break;
                 }
             }
 
-            int special = (found && first && (in[0] < 'A' || in[0] > 'Z'));
+            bool special = (!found && first && (in[0] < 'A' || in[0] > 'Z'));
 
             if (special)
                 sum -= 5;
-            else if (found)
+            else if (!found)
                 sum += la;
 
-            first = 0;
+            first = false;
         }
 
         if (sum < 0)
-            cout << "Fail" << '\n';
+            cout << "Fail\n";
         else
             cout << sum << '\n';
     }
