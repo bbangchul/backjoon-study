@@ -1,6 +1,7 @@
 {
     "editor.tabCompletion": "on",
     "editor.snippetSuggestions": "top",
+    "editor.suggestSelection": "recentlyUsedByPrefix",
     "code-runner.runInTerminal": true,
     "code-runner.saveFileBeforeRun": true,
     "code-runner.fileDirectoryAsCwd": true,

@@ -1,33 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX_N = 50;
-int n, m, k[MAX_N];
+const int MAX_N = 200;
+int n, test, k[MAX_N];
 int kk[MAX_N * MAX_N];
 
-bool BinSearch2(int x)
-{
-    int left = 0, right = n * n;
-    while (right - left >= 1)
-    {
-        int mid = (left + right) / 2;
-        if (kk[mid] == x)
-            return true;
-        else if (kk[mid] < x)
-            left = mid + 1;
-        else
-            right = mid;
-    }
-    return false;
-}
-
-bool Found()
+bool Found(int m)
 {
     for (int a = 0; a < n; a++)
     {
         for (int b = 0; b < n; b++)
         {
-            if (BinSearch2(m - k[a] - k[b]))
+            if (binary_search(kk, kk + n * n, m - k[a] - k[b]))
             {
                 return true;
             }
@@ -35,10 +19,10 @@ bool Found()
     }
     return false;
 }
+
 void solve()
 {
-    bool f;
-    cin >> n >> m;
+    cin >> n >> test;
     for (int i = 0; i < n; i++)
     {
         cin >> k[i];
@@ -52,12 +36,16 @@ void solve()
         }
     }
     sort(kk, kk + n * n);
-    f = Found();
-    if (f)
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
-    return;
+    while (test--)
+    {
+        int m;
+        cin >> m;
+
+        if (Found(m))
+            cout << "Yes\n";
+        else
+            cout << "No\n";
+    }
 }
 
 int main()
@@ -65,4 +53,5 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     solve();
+    return 0;
 }
