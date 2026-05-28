@@ -2,3 +2,9 @@
 tempCodeRunnerFile
 tempCodeRunnerFile.*
 *.dSYM/
+*.o
+*.obj
+*.out
+*.exe
+*.ilk
+*.pdb

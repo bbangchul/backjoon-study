@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 1000000;
-bool prime[MAX + 1];
+const int MAX = 32768;
+
+bool prime[MAX];
 
 void cal()
 {
@@ -33,24 +34,26 @@ void solve()
 
     while (cin >> n)
     {
+
         if (n == 0)
+
             break;
 
-        bool found = false;
-        for (int i = 3; i <= n / 2; i += 2)
+        int count = 0;
+
+        // 중복 제거 위해 n/2 까지만 검사
+
+        for (int i = 2; i <= n / 2; i++)
         {
-            int a = n - i;
-            if (prime[i] && prime[a])
+
+            if (prime[i] && prime[n - i])
             {
-                cout << n << " = " << i << " + " << a << '\n';
-                found = true;
-                break;
+
+                count++;
             }
         }
-        if (!found)
-        {
-            cout << "Goldbach's conjecture is wrong." << '\n';
-        }
+
+        cout << count << '\n';
     }
 }
 
