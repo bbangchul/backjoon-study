@@ -2,7 +2,8 @@
 
 using namespace std;
 
-void solve() {
+void solve()
+{
     string a, b;
     cin >> a >> b;
 
@@ -12,21 +13,24 @@ void solve() {
     int carry = 0;
     string ans = "";
 
-    while (i >= 0 || j >= 0 || carry) {
+    while (i >= 0 || j >= 0 || carry)
+    {
         int sum = carry;
+        carry = sum / 10;
 
-        if (i >= 0) {
+        if (i >= 0)
+        {
             sum += a[i] - '0';
             i--;
         }
 
-        if (j >= 0) {
+        if (j >= 0)
+        {
             sum += b[j] - '0';
             j--;
         }
 
         ans += char(sum % 10 + '0');
-        carry = sum / 10;
     }
 
     reverse(ans.begin(), ans.end());
@@ -34,14 +38,16 @@ void solve() {
     cout << ans << '\n';
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int t;
     cin >> t;
 
-    while (t--) {
+    while (t--)
+    {
         solve();
     }
 
